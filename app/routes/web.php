@@ -16,7 +16,12 @@ use App\Http\Controllers\PostController;
 |
 */
 
+Route::get('/', function () {
+    return view('top');
+});
 
+
+Auth::routes();
 
 
 Route::resource('post', 'PostController');
