@@ -16,12 +16,23 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function () {  /* top画面 */
     return view('top');
 });
 
-
-Auth::routes();
+Route::get('post', function () {  /* 詳細画面 */
+    return view('detail_post');
+});
 
 
 Route::resource('post', 'PostController');
+
+Auth::routes();   /* AUth user登録有 */
+Route::group(['middleware' => 'auth'],function() {
+
+
+
+});
+
+
+

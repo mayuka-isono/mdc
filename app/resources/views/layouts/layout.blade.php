@@ -29,7 +29,7 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
-                    <a class="navbar-brand" href="#">MDC</a>  <!-- MDC アイコン　-->
+                    <a class="navbar-brand" href="">MDC</a>  <!-- MDC アイコン　-->
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -42,12 +42,12 @@
                             <form id="logout-form" action="" method="POST" style="display:none;">
                             @csrf
                             </form>
-                            <!-- <script>
+                            <script>
                                 document.getElementById('logout').addEventListener('click',function(event) {
                                 event.preventDefault();
                                 document.getElementById('logout-form').submit();
                                 });
-                            </script> -->
+                            </script>
                         @else
                             <a class="my-navbar-item" href="{{ route('login') }}">ログイン</a>
                             /

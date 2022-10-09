@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 
+use Carbon\Carbon;
+
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -11,16 +13,15 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-            'name'=> '秋　栗芋',
-            '' => 'サツマイモカラー',
-            'season'=> 2,
-            'category' => 3,
-            'color' => 5,
-            'size' => 3,
-            'del_flg' => 0,
-            'photo' => 'fjii34',
-            'comment' =>'秋のお芋カラー',
+        DB::table('users')->insert([
+            'name' => 'DIOR',
+            'email' => 'genkigenki@out.look',
+            'password'=> '2525_genki',
+            'role' => 1,
+            'icon_img' => 'vjnpvjsb',
+            'user_comment' => 'ミスディオール',
             'created_at' => Carbon::now(),
-            'updated_at' => carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);
     }
 }
