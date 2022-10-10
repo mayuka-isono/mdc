@@ -71,7 +71,6 @@
 
 
 
-
 </main>
 
 @endsection

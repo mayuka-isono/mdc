@@ -21,15 +21,12 @@ Route::get('/', function () {  /* top画面 */
 });
 
 Route::resource('post', 'PostController');
-
-// Route::get('post', function () {  /* 詳細画面 */
-//     return view('detail_post');
-// });
+Route::resource('user', 'UserController');
 
 
 
 Auth::routes();   /* AUth user登録有 */
-// Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
 Route::group(['middleware' => 'auth'],function() {
 
 

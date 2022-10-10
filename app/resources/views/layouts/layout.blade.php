@@ -27,7 +27,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <form class="d-flex">  <!-- 検索フォーム　-->
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
+                        <button class="btn btn-warning" type="submit">Search</button>
                     </form>
                     <a class="navbar-brand" href="">MDC</a>  <!-- MDC アイコン　-->
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,7 @@
                         @else
                             <a class="my-navbar-item" href="{{ route('login') }}">ログイン</a>
                             /
-                            <a class="my-navbar-item" href="{{ route('register') }}">会員登録</a>
+                            <a class="my-navbar-item" href="{{ route('register') }}">新規会員登録</a>
                         @endif
                 </div>
             </div>  <!--  <div class="container-fluid"> -->

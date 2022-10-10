@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return view('private_user');
     }
 
     /**
@@ -39,7 +39,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
-    } 
+    }
 
     /**
      * Display the specified resource.
@@ -60,7 +60,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('edit_user_info');  //user.edit
     }
 
     /**
@@ -72,7 +72,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**
