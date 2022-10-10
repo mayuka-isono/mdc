@@ -15,7 +15,7 @@
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">tops</h5>
-                            <a href="" class="btn btn-primary">Go somewhere</a>
+                            <a href="{{ route('post.index') }}" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -24,7 +24,7 @@
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">shose</h5>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="{{ route('post.index') }}" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">bottom</h5>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="{{ route('post.index') }}" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">outer</h5>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="{{ route('post.index') }}" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">accessories</h5>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="{{ route('post.index') }}" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
@@ -60,7 +60,7 @@
                         <img src="..." class="card-img-top" alt="...">
                         <div class="card-body">
                             <h5 class="card-title">skirt</h5>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                            <a href="{{ route('post.index') }}" class="btn btn-primary">Go somewhere</a>
                         </div>
                     </div>
                 </div>
