@@ -2,7 +2,7 @@
 @section('content')
 <main>
     <section class="">
-        <div class="text-center">
+        <div class="text-center" style="margin: 30px 0px;">
             <h1> POST DETAILS </h1>
         </div>
     </section>
@@ -23,35 +23,36 @@
         <div class="col-4">
             <div class="card">
                 <div class="row justify-content-around">
-                    <div class="col-4">
+                    <div class="col-5">
                         <a href="#" class="btn btn-outline-danger">LOVE</a>
                     </div>
-                    <div class="col-4">
+                    <div class="col-5">
                         <a href="#" class="btn btn-outline-info">FOLLOW</a>
                     </div>
                 </div>
             </div>
-            <table class="table table-striped">
-            <thead>
-                <tr>
-                        <th  scope='col'>title</th>
-                        <th  scope='col'>seson</th>
-                        <th  scope='col'>category</th>
-                        <th  scope='col'>color</th>
-                        <th  scope='col'>size</th>
-                    <tr>
-                </thead>
-                <tbody>
-                    <!-- ここに投稿詳細を表示する -->
-                    <tr>
-                        <td  scope='col'>orange pop</td>
-                        <td  scope='col'>Fall</td>
-                        <td  scope='col'>tops</td>
-                        <td  scope='col'>orange</td>
-                        <td  scope='col'>M</td>
-                    <tr>
-                </tbody>
-            </table>
+            <div class="card" style="margin: 20px 0px; padding: 20px 15px;">
+                <div class="" novalidate>
+                    <div class="form-group">
+                        <label for="post_title">POST TITLE</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="seson" class="form-label">SESON</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="category" class="form-label">CATEGORY</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="size" class="form-label">SIZE</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="color" class="form-label">COLOR</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="comment" class="form-label">USER_COMMENT</label>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

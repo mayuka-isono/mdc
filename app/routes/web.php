@@ -26,7 +26,6 @@ Route::resource('user', 'UserController');
 
 
 Auth::routes();   /* AUth user登録有 */
-
 Route::group(['middleware' => 'auth'],function() {
 
 
