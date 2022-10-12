@@ -14,7 +14,7 @@
                 @method('PUT')
                 <div class="form-group">
                     <label for="icon_img" class="form-label">ICON IMAGE</label>
-                    <textarea class="form-control" id="icon_img" name="icon_img" rows="3"></textarea>
+                    <input type="file" name="icon_img" class="form-control" id="icon_img">
                 </div>
                 <div class="form-group">
                     <label for="name">NAME</label>

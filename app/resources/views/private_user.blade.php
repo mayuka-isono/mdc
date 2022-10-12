@@ -15,14 +15,14 @@
                 <div class="col order-1">
                     <div div style="display:flex;">
                         <div>
-                            <h2>NAME</h2>
+                            <h2>NAME：{{ Auth::user()->name }}</h2>
                         </div>
                         <div>
                             <h4>○○人</h4>
                         </div>
                     </div>
-                    <div class="border border-secondary" style="padding: 20px 5px; ">
-                        comment
+                    <div class="border border-secondary" style="padding: 20px 5px;">
+                        {{ Auth::user()->user_comment }}
                     </div>
                 </div>
                 <div class="col order-2">
