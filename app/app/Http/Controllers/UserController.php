@@ -18,7 +18,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = Auth::id();
+        $user = User::find(Auth::id());
         return view('private_user',[
             'user' => $user,
         ]);
@@ -42,7 +42,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -81,14 +81,19 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         $user =  User::find($id);
-
-        
         $user->name = $request->name;
         $user->user_comment = $request->user_comment;
 
+        $file_name = $request->icon_img->getClientOriginalName();
+        $img = $request->icon_img->storeAs('public', $file_name );
+        $user->icon_img = $file_name;
+        // $image = $request->file('icon_img');
+
         $user->save();
 
-        return redirect('/');
+        return view('private_user',[
+            'user' => $user,
+        ]);
     }
 
     /**

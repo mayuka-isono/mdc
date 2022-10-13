@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row">
                 <div class="col">
-                <img src="..." class="rounded-circle" alt="...">
+                <img src="{{asset('storage/'.$user->icon_img)}}" class="rounded-circle" alt="..." style="width: 200px;height: auto;">
                 </div>
                 <div class="col order-1">
                     <div div style="display:flex;">

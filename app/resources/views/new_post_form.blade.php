@@ -21,9 +21,9 @@
                         <input type="text" class="form-control" id="post_title" name="post_title" />
                     </div>
                 <div class="form-group">
-                    <label for="seson" class="form-label">SESON</label>
-                    <select class="seson-form-select" aria-label="Default select example">
-                        <option selected>seson</option>
+                    <label for="season" class="form-label">SEASON</label>
+                    <select class="season-form-select" aria-label="Default select example" name="season">
+                        <option selected disabled>seson</option>
                         <option value="0">春</option>
                         <option value="1">夏</option>
                         <option value="2">秋</option>
@@ -32,8 +32,8 @@
                 </div>
                 <div class="form-group">
                     <label for="category" class="form-label">CATEGORY</label>
-                    <select class="category-form-select" aria-label="Default select example">
-                        <option selected>category</option>
+                    <select class="category-form-select" aria-label="Default select example" name="category" >
+                        <option selected disabled>category</option>
                         <option value="0">トップス</option>
                         <option value="1">アウター</option>
                         <option value="2">ボトムス</option>
@@ -44,8 +44,8 @@
                 </div>
                 <div class="form-group">
                     <label for="size" class="form-label">SIZE</label>
-                    <select class="size-form-select" aria-label="Default select example">
-                        <option selected>size</option>
+                    <select class="size-form-select" aria-label="Default select example" name="size">
+                        <option selected disabled>size</option>
                         <option value="0">XS</option>
                         <option value="1">S</option>
                         <option value="2">M</option>
@@ -55,8 +55,8 @@
                 </div>
                 <div class="form-group">
                     <label for="color" class="form-label">COLOR</label>
-                    <select class="color-form-select" aria-label="Default select example">
-                        <option selected>color</option>
+                    <select class="color-form-select" aria-label="Default select example" name="color">
+                        <option selected disabled>color</option>
                         <option value="0">白</option>
                         <option value="1">黄色</option>
                         <option value="2">オレンジ</option>
@@ -76,7 +76,7 @@
                     </select>
                     <div class="form-group">
                         <label for="comment" class="form-label">USER_COMMENT</label>
-                        <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+                        <textarea class="form-control" id="comment" name="comment" rows="3" style="resize:none"></textarea>
                     </div>
                 </div>
             </form>

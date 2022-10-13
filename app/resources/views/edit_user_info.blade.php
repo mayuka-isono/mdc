@@ -9,7 +9,7 @@
     <div>
     <nav class="card mt-5" style="margin: 150px 400px;">
         <div class="card-body" >
-            <form method="POST" action="{{ route('user.update',['user' => Auth::user()->id]) }}">
+            <form method="POST" action="{{ route('user.update',['user' => Auth::user()->id]) }}" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
