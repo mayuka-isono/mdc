@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+use App\Post;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+
 class PostController extends Controller
 {
     /**
@@ -34,7 +40,27 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post;
+        $post->post_title = $request->post_title;
+        $post->season = $request->season;
+        $post->category = $request->category;
+        $post->size = $request->size;
+        $post->color = $request->color;
+        $post->comment = $request->comment;
+        $post->user_id = $request->user_id;
+
+        $file_name = $request->photo->getClientOriginalName();
+        $img = $request->photo->storeAs('public', $file_name );
+        $post->photo = $file_name;
+
+        $post->save();
+
+        $user = User::find($post->user_id);
+        $post = Post::where('user_id',$post->user_id)->get()->toArray();
+        return view('private_user',[
+            'user' => $user,
+            'post' => $post,
+        ]);
     }
 
     /**

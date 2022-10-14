@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Post;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -18,9 +19,13 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::find(Auth::id());
+        $id = Auth::id();
+        $user = User::find($id);
+        $post = Post::where('user_id',$id)->get()->toArray();
+
         return view('private_user',[
             'user' => $user,
+            'post' => $post,
         ]);
     }
 
