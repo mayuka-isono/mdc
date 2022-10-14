@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
+    const SEASON = ['春','夏','秋','冬'];
+    const CATEGORY = ['トップス','アウター','ボトムス','シューズ','アクセサリー','コーディネート'];
+    const SIZE = ['XS','S','M','L','XL'];
+    const COLOR = ['白','黄色','オレンジ','赤','ピンク','紫','青','紺','水色','緑','黄緑','ベージュ','茶色','黒','シルバー','ゴールド'];
+
+
     /**
      * Display a listing of the resource.
      *
@@ -19,6 +25,7 @@ class PostController extends Controller
      */
     public function index()
     {
+        
         return view('detail_post');
     }
 
@@ -49,6 +56,7 @@ class PostController extends Controller
         $post->comment = $request->comment;
         $post->user_id = $request->user_id;
 
+        // photo 処理
         $file_name = $request->photo->getClientOriginalName();
         $img = $request->photo->storeAs('public', $file_name );
         $post->photo = $file_name;
@@ -71,7 +79,20 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+        $season = self::SEASON;
+        $category = self::CATEGORY;
+        $size = self::SIZE;
+        $color = self::COLOR;
+
+        $post = Post::find($id);
+
+        return view('detail_post',[
+            'post' => $post,
+            'season' => $season[$post->season],
+            'category' => $category[$post->category],
+            'size' => $size[$post->size],
+            'color' => $color[$post->color],
+        ]);
     }
 
     /**

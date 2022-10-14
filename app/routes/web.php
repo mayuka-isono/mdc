@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
 
+use App\User;
+Use App\Post;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +20,13 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {  /* top画面 */
-    return view('top');
+
+    $id = Auth::id();
+    $post = User::find($id);
+
+    return view('top',[
+        'post' => $post,
+    ]);
 });
 
 Route::resource('post', 'PostController');

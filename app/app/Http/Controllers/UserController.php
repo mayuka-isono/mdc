@@ -95,9 +95,12 @@ class UserController extends Controller
         // $image = $request->file('icon_img');
 
         $user->save();
+        $post = Post::where('user_id',$id)->get()->toArray();
 
         return view('private_user',[
             'user' => $user,
+            'post' => $post,
+
         ]);
     }
 
