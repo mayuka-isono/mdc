@@ -25,7 +25,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        
+
         return view('detail_post');
     }
 
@@ -36,6 +36,7 @@ class PostController extends Controller
      */
     public function create()
     {
+
         return view('new_post_form');
     }
 
@@ -55,6 +56,7 @@ class PostController extends Controller
         $post->color = $request->color;
         $post->comment = $request->comment;
         $post->user_id = $request->user_id;
+
 
         // photo 処理
         $file_name = $request->photo->getClientOriginalName();
@@ -86,8 +88,12 @@ class PostController extends Controller
 
         $post = Post::find($id);
 
+        $user_id = $post->user_id;  // userのIDを取得
+        $user = User::find($user_id);  //Userの中にuser_id
+
         return view('detail_post',[
             'post' => $post,
+            'user' => $user,
             'season' => $season[$post->season],
             'category' => $category[$post->category],
             'size' => $size[$post->size],

@@ -15,7 +15,7 @@
                 <div class="col order-1">
                     <div div style="display:flex;">
                         <div>
-                            <h2>NAME：{{ Auth::user()->name }}</h2>
+                            <h2>NAME</h2>
                         </div>
                         <div>
                             <h4>○○人</h4>
@@ -25,6 +25,7 @@
                         {{ Auth::user()->user_comment }}
                     </div>
                 </div>
+
                 <div class="col order-2">
                 <div class="col-4">
                         <a href="{{ route('user.edit', ['user' => Auth::user()->id]) }}" class="btn btn-outline-dark">基本情報設定</a>
@@ -46,7 +47,9 @@
                             <img src="{{asset('storage/'.$pos['photo'])}}" class="card-img-top" alt="..." style="width: 285px;height: 330px;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $pos['post_title'] }}</h5>
-                                <a href="{{ route('post.show', ['post'=>$pos['id']]) }}" class="btn btn-primary">Go somewhere</a>
+                                <a href="{{ route('post.show', ['post'=>$pos['id']]) }}" class="btn btn-primary">Edit Post</a>
+                                <a href="" class="btn btn-warning">Hidden Post</a>
+                                <a href="" class="btn btn-danger">X</a>
                             </div>
                         </div>
                     </div>

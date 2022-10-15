@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -58,7 +59,17 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+
+
+
+        $user = User::find($id);
+        $post = Post::where('user_id',$id)->get()->toArray();
+
+
+        return view('other_user',[
+            'user' => $user,
+            'post' => $post,
+        ]);
     }
 
     /**

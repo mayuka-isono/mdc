@@ -29,14 +29,14 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-warning" type="submit">Search</button>
                     </form>
-                    <a class="navbar-brand" href="">MDC</a>  <!-- MDC アイコン　-->
+                    <a class="navbar-brand" href="{{ ('/') }}">MDC</a>  <!-- MDC アイコン　-->
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                 </div>
                 <div class="my-user-control">
                         @if(Auth::check())
-                            <span class="my-user-item">{{ Auth::user()->name }}</span>
+                            <span class="my-user-item"><a href="{{ route('user.index') }}">{{ Auth::user()->name }}</a></span>
                             /
                             <a href="#" id="logout" class="my-navbar-item">ログアウト</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none;">

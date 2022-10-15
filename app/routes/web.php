@@ -21,12 +21,12 @@ Use App\Post;
 
 Route::get('/', function () {  /* top画面 */
 
-    $id = Auth::id();
-    $post = User::find($id);
+    $post = Post::all();
 
     return view('top',[
         'post' => $post,
     ]);
+    
 });
 
 Route::resource('post', 'PostController');

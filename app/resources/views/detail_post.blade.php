@@ -6,7 +6,7 @@
             <h1> POST DETAILS </h1>
         </div>
     </section>
-    <div class="d-flex justify-content-around"">
+    <div class="d-flex justify-content-around">
         <div class="col-4">
             <figure class="figure">
                 <img src="{{asset('storage/'.$post->photo)}}" class="figure-img img-fluid rounded" alt="..." style="width: 300px;height: 360px;">
@@ -15,8 +15,15 @@
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">User Name</h5>
-                    <p class="card-text"> It contains user information.</p>
-                    <a href="{{ route('user.index') }}" class="btn btn-outline-success">Go User Page</a>
+                    <h2>{{ $user->name }}</h2>
+                    @if(Auth::check())
+                        @if (Auth::user()->id !== $post->user_id)
+                        <a href="{{ route('user.show',['user'=> $post->user_id ])}}" class="btn btn-outline-success">Go User Page</a>
+                        @else
+                        <a href="{{ route('user.index')}}" class="btn btn-outline-success">Go My Page</a>
+                        @endif
+                    @endif
+
                 </div>
             </div>
         </div>
