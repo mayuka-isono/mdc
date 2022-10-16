@@ -22,6 +22,7 @@
                 @endforeach
             </div>
         </div>
+        {!! $post->links() !!}
     </div>
 
 </main>

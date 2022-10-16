@@ -21,12 +21,12 @@ Use App\Post;
 
 Route::get('/', function () {  /* top画面 */
 
-    $post = Post::all();
+    $post = Post::where('del_flg',0)->paginate(6);
 
     return view('top',[
         'post' => $post,
     ]);
-    
+
 });
 
 Route::resource('post', 'PostController');

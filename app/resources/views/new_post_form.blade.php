@@ -69,7 +69,7 @@
                             <option value="1">黄色</option>
                             <option value="2">オレンジ</option>
                             <option value="3">赤</option>
-                            <option value="4">ピンクL</option>
+                            <option value="4">ピンク</option>
                             <option value="5">紫</option>
                             <option value="6">青</option>
                             <option value="7">紺</option>

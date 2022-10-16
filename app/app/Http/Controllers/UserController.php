@@ -22,7 +22,7 @@ class UserController extends Controller
     {
         $id = Auth::id();
         $user = User::find($id);
-        $post = Post::where('user_id',$id)->get()->toArray();
+        $post = Post::where('user_id',$id)->where('del_flg',0)->get()->toArray();
 
         return view('private_user',[
             'user' => $user,

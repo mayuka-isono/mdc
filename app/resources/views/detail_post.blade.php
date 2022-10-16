@@ -17,11 +17,14 @@
                     <h5 class="card-title">User Name</h5>
                     <h2>{{ $user->name }}</h2>
                     @if(Auth::check())
-                        @if (Auth::user()->id !== $post->user_id)
+                        @if (Auth::user()->id != $post->user_id)
                         <a href="{{ route('user.show',['user'=> $post->user_id ])}}" class="btn btn-outline-success">Go User Page</a>
                         @else
                         <a href="{{ route('user.index')}}" class="btn btn-outline-success">Go My Page</a>
                         @endif
+                    @else
+                    <a href="{{ route('user.show',['user'=> $post->user_id ])}}" class="btn btn-outline-success">Go User Page</a>
+                    
                     @endif
 
                 </div>

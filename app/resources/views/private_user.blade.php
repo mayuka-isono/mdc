@@ -25,7 +25,6 @@
                         {{ Auth::user()->user_comment }}
                     </div>
                 </div>
-
                 <div class="col order-2">
                 <div class="col-4">
                         <a href="{{ route('user.edit', ['user' => Auth::user()->id]) }}" class="btn btn-outline-dark">基本情報設定</a>
@@ -36,8 +35,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
+    </div>  
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
@@ -47,9 +45,14 @@
                             <img src="{{asset('storage/'.$pos['photo'])}}" class="card-img-top" alt="..." style="width: 285px;height: 330px;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $pos['post_title'] }}</h5>
-                                <a href="{{ route('post.show', ['post'=>$pos['id']]) }}" class="btn btn-primary">Edit Post</a>
-                                <a href="" class="btn btn-warning">Hidden Post</a>
-                                <a href="" class="btn btn-danger">X</a>
+                                <div >
+                                    <a href="{{ route('post.edit', ['post'=>$pos['id']]) }}" class="btn btn-primary">Edit Post</a>
+                                    <form  method="POST" action="{{ route('post.destroy', ['post'=>$pos['id']]) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                        <button type="submit" class="btn btn-warning"> Hidden Post</button>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>

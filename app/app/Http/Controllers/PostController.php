@@ -107,9 +107,17 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id)   //post.edit
     {
-        //
+        $post =  Post::find($id);
+        $user_id = $post->user_id;  // userのIDを取得
+        $user = User::find($user_id);
+
+        return view('edit_post',[
+            'post' => $post,
+            'user' => $user,
+
+        ]);
     }
 
     /**
@@ -121,7 +129,20 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->post_title = $request->post_title;
+        $post->comment = $request->comment;
+        if(isset($request->photo )){
+            $file_name = $request->photo->getClientOriginalName();
+            $img = $request->photo->storeAs('public', $file_name );
+            $post->photo = $file_name;
+        }
+        // $image = $request->file('icon_img');
+
+        $post->save();
+
+        return redirect()->route('user.index');
     }
 
     /**
@@ -132,6 +153,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post =  Post::find($id);
+        $post->del_flg = 1;
+
+        $post->save();
+
+        return redirect()->route('user.index');
     }
 }
