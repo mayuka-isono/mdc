@@ -29,7 +29,7 @@
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-warning" type="submit">Search</button>
                     </form>
-                    <a class="navbar-brand" href="{{ ('/') }}">MDC</a>  <!-- MDC アイコン　-->
+                    <a class="navbar-brand" href="{{ ('/') }}" style="width: 200px;margin:0 auto;">MDC</a>  <!-- MDC アイコン　-->
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
