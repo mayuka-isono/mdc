@@ -35,7 +35,7 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
     <div class="album py-5 bg-light">
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3" >
@@ -45,8 +45,8 @@
                             <img src="{{asset('storage/'.$pos['photo'])}}" class="card-img-top" alt="..." style="width: 285px;height: 330px;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $pos['post_title'] }}</h5>
-                                <div >
-                                    <a href="{{ route('post.edit', ['post'=>$pos['id']]) }}" class="btn btn-primary">Edit Post</a>
+                                <div style="display:flex">
+                                    <a href="{{ route('post.edit', ['post'=>$pos['id']]) }}" class="btn btn-primary" style="margin:0px 20px 0px 0px">Edit Post</a>
                                     <form  method="POST" action="{{ route('post.destroy', ['post'=>$pos['id']]) }}">
                                     @csrf
                                     @method('DELETE')

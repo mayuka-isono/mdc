@@ -72,7 +72,6 @@ class PostController extends Controller
             'post' => $post,
         ]);
     }
-
     /**
      * Display the specified resource.
      *

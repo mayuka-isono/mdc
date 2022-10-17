@@ -21,12 +21,25 @@ Use App\Post;
 
 Route::get('/', function () {  /* top画面 */
 
+
     $post = Post::where('del_flg',0)->paginate(6);
+    $user = Auth::user();
 
-    return view('top',[
-        'post' => $post,
-    ]);
-
+    if(Auth::check()) {  //ログインしているユーザーかどうか
+        if($user->role == 0 ) {  //true(ログインユーザーだったらifでroleが0かどうか)
+            return view('administrator',[
+                'post' => $post,
+            ]);
+        } else {
+            return view('top',[
+                'post' => $post,
+            ]);
+        }
+    }else {
+        return view('top',[
+            'post' => $post,
+        ]);
+    }
 });
 
 Route::resource('post', 'PostController');
