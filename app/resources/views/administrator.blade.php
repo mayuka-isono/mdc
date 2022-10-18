@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 @section('content')
 <main>
-    <section class="">
-        <div class="text-center">
+    <section class="" style="background-color:#003366;">
+        <div class="text-center" style="color:white;">
             <h1> ADMINISTRATOR PAGE </h1>
         </div>
     </section>

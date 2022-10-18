@@ -25,7 +25,7 @@ class PostController extends Controller
      */
     public function index()
     {
-
+    
         return view('detail_post');
     }
 
@@ -154,6 +154,7 @@ class PostController extends Controller
     {
         $post =  Post::find($id);
         $post->del_flg = 1;
+
 
         $post->save();
 

@@ -2,22 +2,22 @@
 @section('content')
 <main>
     <section class="">
-        <div class="text-center" style="margin: 30px 0px;">
-            <h1> MY PAGE </h1>
+        <div class="text-center" style="margin: 30px 0px;background-color:#006400;">
+            <h1 style="color:white;"> MY PAGE </h1>
         </div>
     </section>
-    <div class="border border-secondary" style="padding: 120px 0px; ">
+    <div class="border border-secondary" style="padding: 120px 0px;">
         <div class="container">
-            <div class="row">
+            <div class="row"  >
                 <div class="col">
                 <img src="{{asset('storage/'.$user->icon_img)}}" class="rounded-circle" alt="..." style="width: 220px;height: 230px;">
                 </div>
                 <div class="col order-1">
-                    <div div style="display:flex;">
-                        <div>
-                            <h2>NAME</h2>
+                    <div class="row justify-content-around">
+                        <div class="col-4" >
+                            <h2>{{ Auth::user()->name }}</h2>
                         </div>
-                        <div>
+                        <div class="col-4" >
                             <h4>○○人</h4>
                         </div>
                     </div>
@@ -29,9 +29,12 @@
                 <div class="col-4">
                         <a href="{{ route('user.edit', ['user' => Auth::user()->id]) }}" class="btn btn-outline-dark">基本情報設定</a>
                     </div>
-                    <div class="col-4">
-                        <a href="{{ route('post.create') }}" class="btn btn-outline-primary">新規投稿</a>
-                    </div>
+                    @if(Auth::user()->role == 1)  
+                        <div class="col-4">
+                            <a href="{{ route('post.create') }}" class="btn btn-outline-primary">新規投稿</a>
+                        </div>
+                    @else
+                    @endif
                 </div>
             </div>
         </div>
