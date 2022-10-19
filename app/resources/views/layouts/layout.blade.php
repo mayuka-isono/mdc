@@ -25,9 +25,11 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <form class="d-flex">  <!-- 検索フォーム　-->
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-warning" type="submit">Search</button>
+                    <form method="GET" action="{{ ('/') }}" class="d-flex">  <!-- 検索フォーム　-->
+                        <input class="form-control me-2" type="search" placeholder="キーワードを入力 例：スニーカー" aria-label="Search" name="search" value="@if (isset($search)) {{ $search }} @endif">
+                        <div>
+                            <button class="btn btn-warning" type="submit">Search</button>
+                        </div>
                     </form>
                     <a class="navbar-brand" href="{{ ('/') }}" style="width: 200px;margin:0 auto;">MDC</a>  <!-- MDC アイコン　-->
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -3,9 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PostController;
-
-use App\User;
-Use App\Post;
+use App\Http\Controllers\DisplayController;
 
 
 /*
@@ -19,28 +17,7 @@ Use App\Post;
 |
 */
 
-Route::get('/', function () {  /* top画面 */
-
-
-    $post = Post::where('del_flg',0)->paginate(6);
-    $user = Auth::user();
-
-    if(Auth::check()) {  //ログインしているユーザーかどうか
-        if($user->role == 0 ) {  //true(ログインユーザーだったらifでroleが0かどうか)
-            return view('administrator',[
-                'post' => $post,
-            ]);
-        } else {
-            return view('top',[
-                'post' => $post,
-            ]);
-        }
-    }else {
-        return view('top',[
-            'post' => $post,
-        ]);
-    }
-});
+Route::get('/', 'DisplayController@index');
 
 Route::resource('post', 'PostController');
 Route::resource('user', 'UserController');
