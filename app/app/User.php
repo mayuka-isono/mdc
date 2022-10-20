@@ -6,6 +6,8 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Notifications\ResetPassword;  //****追加****
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -39,6 +41,17 @@ class User extends Authenticatable
 
     public static function post() {
         return $this->hasMany('App\Post','user_id','id');
+    }
+
+    /**
+    * パスワードリセット通知の送信
+    *
+    * @param  string  $token
+    * @return void
+    */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ResetPassword($token)); //****変更****
     }
 
 }
