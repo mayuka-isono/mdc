@@ -15,7 +15,7 @@
                             <img src="{{asset('storage/'.$pos['photo'])}}" class="card-img-top" alt="..." style="width: 285px;height: 330px;">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $pos['post_title'] }}</h5>
-                                <a href="{{ route('post.show', ['post'=>$pos['id']]) }}" class="btn btn-primary">Go somewhere</a>
+                                <a href="{{ route('post.show', ['post'=>$pos['id']]) }}" class="btn btn-primary">Go Post Detail</a>
                             </div>
                         </div>
                     </div>

@@ -14,7 +14,7 @@ class DisplayController extends Controller
 {
     public function index(Request $request) {
 
-    $post = Post::where('del_flg',0)->paginate(6);
+    $post = Post::withCount('fav')->where('del_flg',0)->orderBy('created_at','desc')->paginate(6);
     $user = Auth::user();
 
     // 検索フォームで入力された値を取得する
@@ -33,7 +33,7 @@ class DisplayController extends Controller
         foreach($wordArraySearched as $value) {
             $query->where('post_title', 'like', '%'.$value.'%')->where('del_flg',0);
         }
-        
+
         $post=$query->paginate(6);
     }
 

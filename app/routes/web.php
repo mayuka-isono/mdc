@@ -22,6 +22,8 @@ Route::get('/', 'DisplayController@index');
 
 Route::resource('post', 'PostController');
 Route::resource('user', 'UserController');
+Route::resource('fav', 'FavController');
+
 
 //パスワードリセット
 Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
@@ -29,12 +31,12 @@ Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail'
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
+
 Auth::routes();   /* AUth user登録有 */
+
 Route::group(['middleware' => 'auth'],function() {
-
+    Route::post('ajaxlike', 'PostController@ajaxlike')->name('posts.ajaxlike');
 });
-
-
 
 
 Auth::routes();

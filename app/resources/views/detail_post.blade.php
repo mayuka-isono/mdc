@@ -25,7 +25,6 @@
                     @else
                     <a href="{{ route('user.show',['user'=> $post->user_id ])}}" class="btn btn-outline-success">Go User Page</a>
                     @endif
-
                 </div>
             </div>
         </div>
@@ -35,6 +34,21 @@
                     <div class="col-5">
                         <a href="#" class="btn btn-outline-danger">LOVE</a>
                     </div>
+                    @if(Auth::check())
+                    <div class="like">
+                        @if($fav->like_exist($user->id,$post->id))
+                            <p class="favorite-marke" >
+                                <button class="js-like-toggle loved" data-postid="{{ $post->id }}"><i class="fas fa-heart"></i></button>
+                                <span class="likesCount">{{$post->likes_count}}</span>
+                            </p>
+                        @else
+                            <p class="favorite-marke">
+                                <button class="js-like-toggle" href="" data-postid="{{ $post->id }}"><i class="fas fa-heart"></i></button>
+                                <span class="likesCount">{{$post->likes_count}}</span>
+                            </p>
+                        @endif
+                    </div>
+                    @endif
                     <div class="col-5">
                         <a href="#" class="btn btn-outline-info">FOLLOW</a>
                     </div>
@@ -70,63 +84,10 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-    <!-- <div class="row justify-content-evenly">
-    <div class="col-4">
-      One of two columns
-    </div>
-    <div class="col-4">
-      One of two columns
-    </div>
-  </div> -->
-
-
-
-
-
-
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </main>
 @endsection
+<style>
+    .loved i {
+        color: red !important;
+    }
+</style>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Post;
+use App\Fav;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -25,9 +26,42 @@ class PostController extends Controller
      */
     public function index()
     {
-    
         return view('detail_post');
     }
+
+
+    public function ajaxlike(Request $request)
+    {
+        $id = Auth::user()->id;
+        $post_id = $request->post_id;
+        $like = new Fav;
+        $post = Post::findOrFail($post_id);
+
+        // 空でない（既にいいねしている）なら
+        if ($like->like_exist($id, $post_id)) {
+            //likesテーブルのレコードを削除
+            $like = Fav::where('post_id', $post_id)->where('user_id', $id)->delete();
+        } else {
+            //空（まだ「いいね」していない）ならFavテーブルに新しいレコードを作成する
+            $like = new Fav;
+            $like->post_id = $request->post_id;
+            $like->user_id = Auth::user()->id;
+            $like->save();
+        }
+
+        //loadCountとすればリレーションの数を○○_countという形で取得できる（今回の場合はいいねの総数）
+        $postLikesCount = $post->loadCount('fav')->likes_count;
+
+        //一つの変数にajaxに渡す値をまとめる
+        //今回ぐらい少ない時は別にまとめなくてもいい
+        $json = [
+            'postLikesCount' => $postLikesCount,
+        ];
+        //下記の記述でajaxに引数の値を返す
+        return response()->json($json);
+    }
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -90,6 +124,9 @@ class PostController extends Controller
         $user_id = $post->user_id;  // userのIDを取得
         $user = User::find($user_id);  //Userの中にuser_id
 
+        $fav_model = new Fav;
+
+
         return view('detail_post',[
             'post' => $post,
             'user' => $user,
@@ -97,7 +134,9 @@ class PostController extends Controller
             'category' => $category[$post->category],
             'size' => $size[$post->size],
             'color' => $color[$post->color],
+            'fav' => $fav_model,
         ]);
+
     }
 
     /**
