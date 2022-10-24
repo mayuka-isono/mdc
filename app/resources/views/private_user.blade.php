@@ -10,7 +10,7 @@
         <div class="container">
             <div class="row"  >
                 <div class="col">
-                <img src="{{asset('storage/'.$user->icon_img)}}" class="rounded-circle" alt="..." style="width: 220px;height: 230px;">
+                <img src="{{asset('storage/'.$user->icon_img)}}" class="rounded-circle" alt="..." style="width: 220px;height: 230px;" >
                 </div>
                 <div class="col order-1">
                     <div class="d-flex justify-content-start">
@@ -18,7 +18,7 @@
                             <h3 style="font-weight:bold;">NAME &ensp;:&ensp;</h3>
                         </div>
                         <div class="col-4" >
-                            <h2 style="font-weight:bold;color:brown">{{ Auth::user()->name }}</h2>
+                            <h3 style="font-weight:bold;color:brown">{{ Auth::user()->name }}</h3>
                         </div>
                     </div>
                     <div class="border border-secondary" style="padding: 20px 5px;">

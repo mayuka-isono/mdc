@@ -22,7 +22,7 @@ class UserController extends Controller
     {
         $id = Auth::id();
         $user = User::find($id);
-        $post = Post::where('user_id',$id)->where('del_flg',0)->get()->toArray();
+        $post = Post::where('user_id',$id)->where('del_flg',0)->orderBy('created_at','desc')->get()->toArray();
 
         return view('private_user',[
             'user' => $user,
@@ -97,10 +97,15 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->user_comment = $request->user_comment;
 
-        $file_name = $request->icon_img->getClientOriginalName();
-        $img = $request->icon_img->storeAs('public', $file_name );
-        $user->icon_img = $file_name;
+        if(isset($request->icon_img )){
+            $file_name = $request->icon_img->getClientOriginalName();
+            $img = $request->icon_img->storeAs('public', $file_name );
+            $user->icon_img = $file_name;
+        }
+
+
         // $image = $request->file('icon_img');
+
 
         $user->save();
         $post = Post::where('user_id',$id)->get()->toArray();
@@ -108,7 +113,6 @@ class UserController extends Controller
         return view('private_user',[
             'user' => $user,
             'post' => $post,
-
         ]);
     }
 

@@ -13,7 +13,7 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <label for="icon_img" class="form-label" style="font-weight:bold;">ICON IMAGE</label>
+                    <label for="icon_img" class="form-label" style="font-weight:bold;" >ICON IMAGE</label>
                     <input type="file" name="icon_img" class="form-control" id="icon_img">
                 </div>
                 <div class="form-group">

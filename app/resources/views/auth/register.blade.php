@@ -7,14 +7,14 @@
       <div class="col col-md-offset-3 col-md-6">
         <nav class="card mt-5" style="margin:150px 0px 150px 0px;">
           <div class="card-header" style="background-color:#663300 ;">新規会員登録</div>
-          <div class="card-body" style="background-color:#D2B48C ;" >
-            @if($errors->any())
-              <div class="alert alert-danger">
-                @foreach($errors->all() as $message)
-                  <p>{{ $message }}</p>
-                @endforeach
-              </div>
-            @endif
+            <div class="card-body" style="background-color:#D2B48C ;" >
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                    @foreach($errors->all() as $message)
+                        <p>{{ $message }}</p>
+                    @endforeach
+                    </div>
+                @endif
             <form action="{{ route('register') }}" method="POST">
               @csrf
               <div class="form-group">
@@ -49,7 +49,7 @@
 @endsection
 <style>
     #back {
-        background: linear-gradient(to bottom, #FAEBD7 , #663300);
+        background: linear-gradient(to bottom, white , #006400);
     }
     .card-header {
         color:white;

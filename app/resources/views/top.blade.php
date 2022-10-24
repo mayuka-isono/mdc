@@ -25,7 +25,6 @@
         <div style="width: 200px;margin:0 auto;"> {!! $post->links() !!} </div>
     </div>
 </main>
-
 @endsection
 <style>
     .btn-green {
