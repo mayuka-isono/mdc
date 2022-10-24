@@ -2,8 +2,8 @@
 @section('content')
 <main>
     <section class="">
-        <div class="text-center" style="margin: 30px 0px;">
-            <h1> 基本情報設定 </h1>
+        <div class="text-center" style="margin: 30px 0px;background-color:#006400;">
+            <h1 style="color:white;"> 基本情報設定 </h1>
         </div>
     </section>
     <div>
@@ -13,19 +13,19 @@
                 @csrf
                 @method('PUT')
                 <div class="form-group">
-                    <label for="icon_img" class="form-label">ICON IMAGE</label>
+                    <label for="icon_img" class="form-label" style="font-weight:bold;">ICON IMAGE</label>
                     <input type="file" name="icon_img" class="form-control" id="icon_img">
                 </div>
                 <div class="form-group">
-                    <label for="name">NAME</label>
+                    <label for="name" style="font-weight:bold;">NAME</label>
                     <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" />
                 </div>
                 <div class="form-group">
-                    <label for="user_comment" class="form-label">USER_COMMENT</label>
+                    <label for="user_comment" class="form-label" style="font-weight:bold;">USER_COMMENT</label>
                     <textarea class="form-control" id="user_comment" name="user_comment" rows="3"> {{$user->user_comment}} </textarea>
                 </div>
                 <div class="text-right">
-                    <button type="submit" class="btn btn-primary">登録</button>
+                    <button type="submit" class="btn" style="background-color:#006400;color:white;">登録</button>
                 </div>
             </form>
         </div>

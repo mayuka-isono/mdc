@@ -26,8 +26,8 @@
             </figure>
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
-                    <h5 class="card-title">User Name</h5>
-                    <h2>{{ $user->name }}</h2>
+                    <h5 class="card-title" style="font-weight:bold;color:brown"; >User Name</h5>
+                    <h2 style="font-weight:bold;" >{{ $user->name }}</h2>
                     @if(Auth::check())
                         @if(Auth::user()->role == 0)
                             <a href="{{ route('user.show',['user'=> $post->user_id ])}}" class="btn" style="background-color:#003366;color:white ;" >Go User Page</a>
@@ -43,56 +43,49 @@
             </div>
         </div>
         <div class="col-4">
-            <div class="card">
-                <div class="row justify-content-around">
-                    <div class="col-5">
-                        <a href="#" class="btn btn-outline-danger">LOVE</a>
-                    </div>
-                    @if(Auth::check())
-                    <div class="like">
-                        @if($fav->like_exist($user->id,$post->id))
-                            <p class="favorite-marke" >
-                                <button class="js-like-toggle loved" data-postid="{{ $post->id }}"><i class="fas fa-heart"></i></button>
-                                <span class="likesCount">{{$post->likes_count}}</span>
-                            </p>
-                        @else
-                            <p class="favorite-marke">
-                                <button class="js-like-toggle" href="" data-postid="{{ $post->id }}"><i class="fas fa-heart"></i></button>
-                                <span class="likesCount">{{$post->likes_count}}</span>
-                            </p>
-                        @endif
-                    </div>
+            <div class="love-good">
+                <div style="font-weight:bold;" >* LOVE * &emsp;</div>
+                @if(Auth::check())
+                <div class="like">
+                    @if($fav->like_exist($user->id,$post->id))
+                        <p class="favorite-marke" >
+                            <button class="js-like-toggle loved" data-postid="{{ $post->id }}" ><i class="fas fa-heart" ></i></button>
+                            <span class="likesCount">{{$post->likes_count}}</span>
+                        </p>
+                    @else
+                        <p class="favorite-marke">
+                            <button class="js-like-toggle" href="" data-postid="{{ $post->id }}"><i class="fas fa-heart"></i></button>
+                            <span class="likesCount">{{$post->likes_count}}</span>
+                        </p>
                     @endif
-                    <div class="col-5">
-                        <a href="#" class="btn btn-outline-info">FOLLOW</a>
-                    </div>
                 </div>
+                @endif
             </div>
-            <div class="card" style="margin: 20px 0px; padding: 20px 15px;">
+            <div class="card" style="margin: 20px 0px; padding: 20px 15px;border-color:#006400;">
                 <div class="" novalidate>
                     <div class="form-group">
-                        <label for="post_title">POST TITLE</label>
-                        <div>{{ $post->post_title }}</div>
+                        <label for="post_title" class="form-label">POST TITLE</label>
+                        <div class="contents">&emsp;==>&emsp;&emsp;【&emsp;{{ $post->post_title }}<&emsp;】</div>
                     </div>
                     <div class="form-group">
                         <label for="seson" class="form-label">SEASON</label>
-                        {{ $season }}
+                        <div class="contents">&emsp;==>&emsp;&emsp;【&emsp;&emsp;{{ $season }}&emsp;&emsp;】</div>
                     </div>
                     <div class="form-group">
                         <label for="category" class="form-label">CATEGORY</label>
-                        {{ $category }}
+                        <div class="contents">&emsp;==>&emsp;&emsp;【&emsp;&emsp;{{ $category }}&emsp;&emsp;】</div>
                     </div>
                     <div class="form-group">
                         <label for="size" class="form-label">SIZE</label>
-                        {{ $size }}
+                        <div class="contents">&emsp;==>&emsp;&emsp;【&emsp;&emsp;{{ $size }}&emsp;&emsp;】</div>
                     </div>
                     <div class="form-group">
                         <label for="color" class="form-label">COLOR</label>
-                        {{ $color }}
+                        <div class="contents">&emsp;==>&emsp;&emsp;【&emsp;&emsp;{{ $color }}&emsp;&emsp;】</div>
                     </div>
                     <div class="form-group">
                         <label for="comment" class="form-label">USER_COMMENT</label>
-                        <div>{{ $post->comment }}</div>
+                        <div class="contents">&emsp;==>&emsp;&emsp;【&emsp;{{ $post->comment }}&emsp;】</div>
                     </div>
                 </div>
             </div>
@@ -105,7 +98,18 @@
         background-color:#006400 ;
         color:white;
     }
+    .love-good {
+        display:flex;
+    }
     .loved i {
-        color: red !important;
+        color: #FF3399;
+    }
+    .contents {
+        font-weight:bold;
+    }
+    .form-label {
+        font-size:18px;
+        font-weight:bold;
+        color:brown;
     }
 </style>

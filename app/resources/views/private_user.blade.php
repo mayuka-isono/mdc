@@ -13,12 +13,12 @@
                 <img src="{{asset('storage/'.$user->icon_img)}}" class="rounded-circle" alt="..." style="width: 220px;height: 230px;">
                 </div>
                 <div class="col order-1">
-                    <div class="row justify-content-around">
-                        <div class="col-4" >
-                            <h2>{{ Auth::user()->name }}</h2>
+                    <div class="d-flex justify-content-start">
+                        <div>
+                            <h3 style="font-weight:bold;">NAME &ensp;:&ensp;</h3>
                         </div>
                         <div class="col-4" >
-                            <h4>○○人</h4>
+                            <h2 style="font-weight:bold;color:brown">{{ Auth::user()->name }}</h2>
                         </div>
                     </div>
                     <div class="border border-secondary" style="padding: 20px 5px;">
@@ -29,7 +29,7 @@
                 <div class="col-4">
                         <a href="{{ route('user.edit', ['user' => Auth::user()->id]) }}" class="btn btn-outline-dark">基本情報設定</a>
                     </div>
-                    @if(Auth::user()->role == 1)  
+                    @if(Auth::user()->role == 1)
                         <div class="col-4">
                             <a href="{{ route('post.create') }}" class="btn btn-outline-primary">新規投稿</a>
                         </div>
@@ -47,13 +47,13 @@
                         <div class="card" style="width: 18rem;">
                             <img src="{{asset('storage/'.$pos['photo'])}}" class="card-img-top" alt="..." style="width: 285px;height: 330px;">
                             <div class="card-body">
-                                <h5 class="card-title">{{ $pos['post_title'] }}</h5>
+                                <h5 class="card-title" style="color:#663300">{{ $pos['post_title'] }}</h5>
                                 <div style="display:flex">
-                                    <a href="{{ route('post.edit', ['post'=>$pos['id']]) }}" class="btn btn-primary" style="margin:0px 20px 0px 0px">Edit Post</a>
+                                    <a href="{{ route('post.edit', ['post'=>$pos['id']]) }}" class="btn" style="margin:0px 20px 0px 0px;background-color:#006600 ;color:white ;">Edit Post</a>
                                     <form  method="POST" action="{{ route('post.destroy', ['post'=>$pos['id']]) }}">
                                     @csrf
                                     @method('DELETE')
-                                        <button type="submit" class="btn btn-warning"> Hidden Post</button>
+                                        <button type="submit" class="btn" style="background-color:#FFCC33 ;" > Hidden Post</button>
                                     </form>
                                 </div>
                             </div>
@@ -67,3 +67,4 @@
 </main>
 
 @endsection
+

@@ -3,11 +3,10 @@
 
 <main>
     <section class="">
-        <div class="text-center" style="margin: 30px 0px;">
-            <h1> EDIT POST</h1>
+        <div class="text-center" style="margin: 30px 0px;background-color:#006400;">
+            <h1 style="color:white;"> EDIT POST</h1>
         </div>
     </section>
-
     <form class="post_form" novalidate  method="POST" action="{{route('post.update', $post['id']) }}" enctype="multipart/form-data" style="border: solid; border-color: #000000;margin: 30px 80px;padding:50px 30px">
     @csrf
     @method('PUT')
@@ -19,7 +18,7 @@
                     <input type="file" name="photo" class="form-control" id="photo" value="">
                 </div>
                 <div class="new_post_submit" style="margin:40px 0px 20px 130px">
-                    <button type="submit" class="btn btn-dark btn-lg"  style="padding:20px 30px">投稿編集</button>
+                    <button type="submit" class="btn btn-dark btn-lg"  style="padding:20px 30px;background-color:#663300;color:white;">投稿編集</button>
                 </div>
             </div>
             <div class="right">

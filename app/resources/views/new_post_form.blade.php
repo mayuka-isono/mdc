@@ -3,8 +3,8 @@
 
 <main>
     <section class="">
-        <div class="text-center" style="margin: 30px 0px;">
-            <h1> NEW POST</h1>
+        <div class="text-center" style="margin: 30px 0px;background-color:#006400;">
+            <h1 style="color:white;"> NEW POST</h1>
         </div>
     </section>
 
@@ -17,7 +17,7 @@
                     <input type="file" name="photo" class="form-control" id="photo">
                 </div>
                 <div class="new_post_submit" style="margin:150px 0px 20px 110px">
-                    <button type="submit" class="btn btn-dark btn-lg"  style="padding:20px 30px">新規投稿</button>
+                    <button type="submit" class="btn"  style="padding:20px 30px;background-color:#663300;color:white;">新規投稿</button>
                 </div>
             </div>
             <div class="right">
