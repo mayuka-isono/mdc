@@ -16,11 +16,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{ $pos['post_title'] }}</h5>
                                 <div style="display:flex">
-                                    <a href="{{ route('post.show', ['post'=>$pos['id']]) }}" class="btn btn-primary" style="margin:0px 30px 0px 0px">Go somewhere</a>
+                                    <a href="{{ route('post.show', ['post'=>$pos['id']]) }}" class="btn" style="margin:0px 30px 0px 0px;background-color:#003366;color:white ;">Go somewhere</a>
                                     <form  method="POST" action="{{ route('post.destroy', ['post'=>$pos['id']]) }}">
                                         @csrf
                                         @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"> Delete </button>
+                                            <button type="submit" class="btn" style="background-color:#770000;color:white ;"> Delete </button>
                                     </form>
                                 </div>
                             </div>
@@ -32,5 +32,5 @@
         <div style="width: 200px;margin:0 auto;"> {!! $post->links() !!} </div>
     </div>
 </main>
-
 @endsection
+

@@ -1,10 +1,22 @@
 @extends('layouts.layout')
 @section('content')
 <main>
-    <section class="">
+    <section class="section">
+    @if(Auth::check())
+        @if(Auth::user()->role == 0 )
+            <div class="text-center" style="margin: 30px 0px;background-color:#003366 ; color:white ;">
+                <h1> POST DETAILS </h1>
+            </div>
+        @else
+            <div class="text-center" style="margin: 30px 0px;">
+                <h1> POST DETAILS </h1>
+            </div>
+        @endif
+    @else
         <div class="text-center" style="margin: 30px 0px;">
             <h1> POST DETAILS </h1>
         </div>
+    @endif
     </section>
     <div class="d-flex justify-content-around">
         <div class="col-4">
@@ -17,13 +29,15 @@
                     <h5 class="card-title">User Name</h5>
                     <h2>{{ $user->name }}</h2>
                     @if(Auth::check())
-                        @if(Auth::user()->id != $post->user_id)
-                        <a href="{{ route('user.show',['user'=> $post->user_id ])}}" class="btn btn-outline-success">Go User Page</a>
+                        @if(Auth::user()->role == 0)
+                            <a href="{{ route('user.show',['user'=> $post->user_id ])}}" class="btn" style="background-color:#003366;color:white ;" >Go User Page</a>
+                        @elseif(Auth::user()->id != $post->user_id)
+                        <a href="{{ route('user.show',['user'=> $post->user_id ])}}" class="btn" style="background-color:#006400;color:white;">Go User Page</a>
                         @else
-                        <a href="{{ route('user.index')}}" class="btn btn-outline-success">Go My Page</a>
+                        <a href="{{ route('user.index')}}" class="btn" style="background-color:#336699;color:white;">Go My Page</a>
                         @endif
                     @else
-                    <a href="{{ route('user.show',['user'=> $post->user_id ])}}" class="btn btn-outline-success">Go User Page</a>
+                    <a href="{{ route('user.show',['user'=> $post->user_id ])}}" class="btn" style="background-color:#006400;color:white;">Go User Page</a>
                     @endif
                 </div>
             </div>
@@ -87,6 +101,10 @@
 </main>
 @endsection
 <style>
+    .text-center {
+        background-color:#006400 ;
+        color:white;
+    }
     .loved i {
         color: red !important;
     }

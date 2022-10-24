@@ -46,13 +46,13 @@ class DisplayController extends Controller
                 return view('top',[
                     'post' => $post,
                 ]);
-            }
-        }else {
+        }
+    }else {
             return view('top',[
                 'post' => $post,
             ]);
 
-        }
+    }
     }
 
 }
