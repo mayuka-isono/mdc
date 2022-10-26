@@ -40,6 +40,7 @@ $(function () {
     });
 });
 
+
 // FOLLOW 機能
 $(function () {
     let follow = $('.js-follow-toggle');
@@ -47,7 +48,6 @@ $(function () {
 
     follow.on('click', function () {
         let $this = $(this);
-        alert('押せた');
         followUserId = $this.data('follow');
         $.ajax({
                 headers: {
@@ -62,17 +62,14 @@ $(function () {
 
             // Ajaxリクエストが成功した場合
             .done(function (data) {
-                console.log(data);
             //lovedクラスを追加
                 $this.toggleClass('followed');
-
              //.likesCountの次の要素のhtmlを「data.postLikesCount」の値に書き換える
             })
             // Ajaxリクエストが失敗した場合
             .fail(function (data, xhr, err) {
             //ここの処理はエラーが出た時にエラー内容をわかるようにしておく。
             //とりあえず下記のように記述しておけばエラー内容が詳しくわかります。笑
-
                 console.log(err);
                 console.log(xhr);
                 console.log(data);

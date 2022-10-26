@@ -33,8 +33,7 @@ class DisplayController extends Controller
         foreach($wordArraySearched as $value) {
             $query->where('post_title', 'like', '%'.$value.'%')->where('del_flg',0);
         }
-        
-
+    
         $post=$query->paginate(6);
     }
 

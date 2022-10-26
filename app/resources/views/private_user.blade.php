@@ -35,6 +35,7 @@
                         </div>
                     @else
                     @endif
+                    <a href="{{ route('fav.index') }}" class="btn btn-outline-danger">いいね一覧</a>
                 </div>
             </div>
         </div>

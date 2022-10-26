@@ -45,6 +45,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Post','user_id','id');
     }
 
+    public function postFav() {
+        return $this->belongsToMany('App\Post','Fav','user_id','post_id');
+    }
+
     /**
     * パスワードリセット通知の送信
     *
