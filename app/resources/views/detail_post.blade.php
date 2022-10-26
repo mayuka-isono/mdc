@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-<main>
+<main class="back">
     <section class="section">
     @if(Auth::check())
         @if(Auth::user()->role == 0 )
@@ -61,7 +61,6 @@
                 </div>
                 @endif
             </div>
-
             <div class="follow-followed">  <!-- フォロー機能 -->
                 <div style="font-weight:bold;" >* FOLLOW * &emsp;</div>
                 @if(Auth::check())
@@ -83,7 +82,7 @@
                 <div class="" novalidate>
                     <div class="form-group">
                         <label for="post_title" class="form-label">POST TITLE</label>
-                        <div class="contents">&emsp;==>&emsp;&emsp;【&emsp;{{ $post->post_title }}<&emsp;】</div>
+                        <div class="contents">&emsp;==>&emsp;&emsp;【&emsp;{{ $post->post_title }}&emsp;】</div>
                     </div>
                     <div class="form-group">
                         <label for="seson" class="form-label">SEASON</label>
@@ -112,6 +111,9 @@
 </main>
 @endsection
 <style>
+     .back {
+        background: linear-gradient(to top,#B0C4DE ,#8FBC8F );
+    }
     .text-center {
         background-color:#006400 ;
         color:white;

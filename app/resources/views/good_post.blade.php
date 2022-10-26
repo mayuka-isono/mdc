@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 @section('content')
-<main>
+<main class="back">
     <section class="" style="background-color:#006400;">
         <div class="text-center" style="color:white;">
             <h1> GOOD POST PAGE </h1>
@@ -22,11 +22,17 @@
                 @endforeach
             </div>
         </div>
-        <div style="width: 200px;margin:0 auto;"> {!! $post->links() !!} </div>
+        <div style="width: 200px;margin:0 auto; "> {!! $post->links() !!} </div>
     </div>
 </main>
 @endsection
 <style>
+    .back {
+        background: linear-gradient(to top,#B0C4DE ,#8FBC8F );
+    }
+    .album {
+        background: linear-gradient(to top,#B0C4DE ,#8FBC8F );
+    }
     .btn-green {
         background-color:#006400 ;
         color:white ;

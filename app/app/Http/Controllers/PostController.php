@@ -27,7 +27,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('detail_post');
+        $fav_model = Fav::like_exist(Auth::user()->id, $id);
+        $follow_model = Follow::follow_exist($user_id,Auth::user()->id);
+        return view('detail_post',[
+            'fav' => $fav_model,
+            'follow' => $follow_model,
+        ]);
     }
 
 
@@ -146,18 +151,42 @@ class PostController extends Controller
         $user_id = $post->user_id;  // userのIDを取得
         $user = User::find($user_id);  //Userの中にuser_id
 
-        $fav_model = Fav::like_exist(Auth::user()->id, $id);
-        $follow_model = Follow::follow_exist($user_id,Auth::user()->id);
-        return view('detail_post',[
-            'post' => $post,
-            'user' => $user,
-            'season' => $season[$post->season],
-            'category' => $category[$post->category],
-            'size' => $size[$post->size],
-            'color' => $color[$post->color],
-            'fav' => $fav_model,
-            'follow' => $follow_model,
-        ]);
+
+        if(Auth::check()) {
+            $fav_model = Fav::like_exist(Auth::user()->id, $id);
+            $follow_model = Follow::follow_exist($user_id,Auth::user()->id);
+            return view('detail_post',[
+                'post' => $post,
+                'user' => $user,
+                'season' => $season[$post->season],
+                'category' => $category[$post->category],
+                'size' => $size[$post->size],
+                'color' => $color[$post->color],
+                'fav' => $fav_model,
+                'follow' => $follow_model,
+            ]);
+
+        } else {
+            return view('detail_post',[
+                'post' => $post,
+                'user' => $user,
+                'season' => $season[$post->season],
+                'category' => $category[$post->category],
+                'size' => $size[$post->size],
+                'color' => $color[$post->color],
+            ]);
+        }
+
+        // return view('detail_post',[
+        //     'post' => $post,
+        //     'user' => $user,
+        //     'season' => $season[$post->season],
+        //     'category' => $category[$post->category],
+        //     'size' => $size[$post->size],
+        //     'color' => $color[$post->color],
+        //     // 'fav' => $fav_model,
+        //     // 'follow' => $follow_model,
+        // ]);
 
     }
 

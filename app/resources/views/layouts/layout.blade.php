@@ -24,7 +24,7 @@
 </head>
 <body>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height:60px">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height:60px; background-color:#FFEFD5 ;">
             <div class="container-fluid">
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <form method="GET" action="{{ ('/') }}" class="d-flex" style="width:300px;">  <!-- 検索フォーム　-->

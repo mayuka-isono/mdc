@@ -7,9 +7,9 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col col-md-offset-3 col-md-6">
-        <nav class="card mt-5">
-          <div class="card-header"> LOGIN </div>
-          <div class="card-body">
+        <nav class="card mt-5" style="margin:250px 0px 350px 0px;">
+          <div class="card-header" style="background-color:#D2B48C;color:#663300;font-weight:bold;"> LOGIN </div>
+          <div class="card-body" style="background-color:#FAEBD7 ;" >
             @if($errors->any())
               <div class="alert alert-danger">
                 @foreach($errors->all() as $message)
@@ -21,21 +21,22 @@
               @csrf
               <div class="form-group">
                 <label for="email">メールアドレス</label>
-                <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}" />
+                <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}" style="background-color:#FAF0E6 ;"/>
               </div>
               <div class="form-group">
                 <label for="password">パスワード</label>
-                <input type="password" class="form-control" id="password" name="password" />
+                <input type="password" class="form-control" id="password" name="password" style="background-color:#FAF0E6 ;"/>
               </div>
               <div class="text-right">
-                <button type="submit" class="btn btn-green">送信</button>
+                <button type="submit" class="btn btn-green" style="background-color:#D2B48C ;color:#663300 ;font-weight:bold;">送信</button>
               </div>
             </form>
           </div>
-        </nav>
-        <div class="text-center">
+          <div class="text-center" style="background-color:#FAEBD7 ;">
           <a href="{{ route('password.request') }}">パスワードの変更はこちらから</a>
-        </div>
+          </div>
+        </nav>
+
       </div>
     </div>
   </div>
@@ -43,10 +44,14 @@
 @endsection
 <style>
     #back {
-        background: linear-gradient(to bottom, white , #2E8B57);
+        background: linear-gradient(to top,#B0C4DE ,#8FBC8F );
     }
-    .btn-green {
-        background-color:#006400 ;
-        color:white ;
+    .card-header {
+        color:white;
     }
+    .form-group {
+        font-weight:bold;
+        color:#663300;
+    }
+
 </style>
