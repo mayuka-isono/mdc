@@ -43,24 +43,42 @@
             </div>
         </div>
         <div class="col-4">
-            <div class="love-good">
+            <div class="love-good">   <!-- いいね機能 -->
                 <div style="font-weight:bold;" >* LOVE * &emsp;</div>
                 @if(Auth::check())
                 <div class="like">
-                    @if($fav->like_exist($user->id,$post->id))
+                    @if($fav)
                         <p class="favorite-marke" >
                             <button class="js-like-toggle loved" data-postid="{{ $post->id }}" ><i class="fas fa-heart" ></i></button>
                             <span class="likesCount">{{$post->likes_count}}</span>
                         </p>
                     @else
                         <p class="favorite-marke">
-                            <button class="js-like-toggle" href="" data-postid="{{ $post->id }}"><i class="fas fa-heart"></i></button>
+                            <button class="js-like-toggle" href="" data-postid="{{ $post->id }}"><i class="fas fa-heart test"></i></button>
                             <span class="likesCount">{{$post->likes_count}}</span>
                         </p>
                     @endif
                 </div>
                 @endif
             </div>
+
+            <div class="follow-followed">  <!-- フォロー機能 -->
+                <div style="font-weight:bold;" >* FOLLOW * &emsp;</div>
+                @if(Auth::check())
+                <div class="follow">
+                    @if($follow)
+                        <p class="follow-marke-now" >
+                            <button class="js-follow-toggle followed" data-follow="{{ $user->id }}"><div class="fol"  >follow</div></button>
+                        </p>
+                    @else
+                        <p class="follow-marke">
+                            <button class="js-follow-toggle" href="" data-follow="{{ $user->id }}"><div class="fol">follow</div></button>
+                        </p>
+                    @endif
+                </div>
+                @endif
+            </div>
+
             <div class="card" style="margin: 20px 0px; padding: 20px 15px;border-color:#006400;">
                 <div class="" novalidate>
                     <div class="form-group">
@@ -103,6 +121,19 @@
     }
     .loved i {
         color: #FF3399;
+    }
+    .js-like-toggle {
+        border:none;
+    }
+    .follow-followed {
+        display:flex;
+    }
+    .js-follow-toggle {
+        border-radius:10px;
+    }
+    .followed {
+        background-color:#006400 ;
+        color:white;
     }
     .contents {
         font-weight:bold;

@@ -3,6 +3,7 @@
 @extends('layouts.layout')
 
 @section('content')
+<div id="back">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col col-md-offset-3 col-md-6">
@@ -38,8 +39,12 @@
       </div>
     </div>
   </div>
+</div>
 @endsection
 <style>
+    #back {
+        background: linear-gradient(to bottom, white , #2E8B57);
+    }
     .btn-green {
         background-color:#006400 ;
         color:white ;

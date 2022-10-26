@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fav extends Model
 {
-    protected $table = 'Fav';
+    protected $table = 'Fav'; //命名規則
 
     public function user() {
         return $this->belongsTo('App\User','user_id','id');

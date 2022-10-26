@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Post;
 use App\Fav;
+use App\Follow;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -37,6 +38,7 @@ class PostController extends Controller
         $like = new Fav;
         $post = Post::findOrFail($post_id);
 
+        // いいね用
         // 空でない（既にいいねしている）なら
         if ($like->like_exist($id, $post_id)) {
             //likesテーブルのレコードを削除
@@ -59,6 +61,26 @@ class PostController extends Controller
         ];
         //下記の記述でajaxに引数の値を返す
         return response()->json($json);
+    }
+
+    public function ajaxfollow(Request $request)
+    {
+        $id = Auth::user()->id;
+        $followed_id = $request->follow_id;
+
+        $follow = new Follow;
+
+        // 空でない（既にフォローしている）なら
+        if ($follow->follow_exist($id, $followed_id)) {
+            //Followーブルのレコードを削除
+            $follow = Follow::where('follower_id', $followed_id)->where('follow_id', $id)->delete();
+        } else {
+            //空（まだ「フォロー」していない）ならFollowテーブルに新しいレコードを作成する
+            $follow = new Follow;
+            $follow->follower_id = $followed_id;
+            $follow->follow_id = Auth::user()->id;
+            $follow->save();
+        }
     }
 
 
@@ -124,9 +146,8 @@ class PostController extends Controller
         $user_id = $post->user_id;  // userのIDを取得
         $user = User::find($user_id);  //Userの中にuser_id
 
-        $fav_model = new Fav;
-
-
+        $fav_model = Fav::like_exist(Auth::user()->id, $id);
+        $follow_model = Follow::follow_exist($user_id,Auth::user()->id);
         return view('detail_post',[
             'post' => $post,
             'user' => $user,
@@ -135,6 +156,7 @@ class PostController extends Controller
             'size' => $size[$post->size],
             'color' => $color[$post->color],
             'fav' => $fav_model,
+            'follow' => $follow_model,
         ]);
 
     }

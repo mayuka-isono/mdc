@@ -35,7 +35,10 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Auth::routes();   /* AUth user登録有 */
 
 Route::group(['middleware' => 'auth'],function() {
+    // いいね　route
     Route::post('ajaxlike', 'PostController@ajaxlike')->name('posts.ajaxlike');
+    // フォロー　route
+    Route::post('ajaxfollow', 'PostController@ajaxfollow')->name('users.ajaxlike');
 });
 
 

@@ -49,7 +49,7 @@
 @endsection
 <style>
     #back {
-        background: linear-gradient(to bottom, white , #006400);
+        background: linear-gradient(to bottom, white , #2E8B57);
     }
     .card-header {
         color:white;
