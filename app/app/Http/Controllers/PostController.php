@@ -127,7 +127,7 @@ class PostController extends Controller
         $post->save();
 
         $user = User::find($post->user_id);
-        $post = Post::where('user_id',$post->user_id)->get()->toArray();
+        $post = Post::where('user_id',$post->user_id)->orderBy('created_at','desc')->paginate(6);;
         return view('private_user',[
             'user' => $user,
             'post' => $post,

@@ -22,8 +22,7 @@ class UserController extends Controller
     {
         $id = Auth::id();
         $user = User::find($id);
-        $post = Post::where('user_id',$id)->where('del_flg',0)->orderBy('created_at','desc')->get()->toArray();
-
+        $post = Post::where('user_id',$id)->where('del_flg',0)->orderBy('created_at','desc')->paginate(6);
         return view('private_user',[
             'user' => $user,
             'post' => $post,
@@ -61,7 +60,7 @@ class UserController extends Controller
     {
 
         $user = User::find($id);
-        $post = Post::where('user_id',$id)->get()->toArray();
+        $post = Post::where('user_id',$id)->orderBy('created_at','desc')->paginate(6);
 
         return view('other_user',[
             'user' => $user,
