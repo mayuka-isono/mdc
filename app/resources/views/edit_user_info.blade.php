@@ -2,7 +2,7 @@
 @section('content')
 <main>
     <section class="">
-        <div class="text-center" style="margin: 30px 0px;background-color:#006400;">
+        <div class="text-center" style="padding: 12px 0px;background-color:#006400;">
             <h1 style="color:white;"> 基本情報設定 </h1>
         </div>
     </section>

@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 @section('content')
 <main>
-    <section class="" style="background-color:#003366;">
+    <section class="" style="background-color:#003366;margin:0px 0px 0px 0px; padding:12px 0px;">
         <div class="text-center" style="color:white;">
             <h1> ADMINISTRATOR PAGE </h1>
         </div>
@@ -29,8 +29,15 @@
                 @endforeach
             </div>
         </div>
-        <div style="width: 200px;margin:0 auto;"> {!! $post->links() !!} </div>
+
     </div>
+    <div style="width: 200px;margin:0 auto;"> {!! $post->links() !!} </div>
 </main>
 @endsection
+<style>
+    .album {
+        background: linear-gradient(to top,#B0C4DE ,#8FBC8F );
+        /* padding:50px 0px 350px 0px; */
+    }
+</style>
 

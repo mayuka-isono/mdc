@@ -4,16 +4,16 @@
     <section class="section">
     @if(Auth::check())
         @if(Auth::user()->role == 0 )
-            <div class="text-center" style="margin: 30px 0px;background-color:#003366 ; color:white ;">
+            <div class="text-center" style="padding: 12px 0px;background-color:#003366; color:white;margin:0px 0px 40px 0px;">
                 <h1> POST DETAILS </h1>
             </div>
         @else
-            <div class="text-center" style="margin: 30px 0px;">
+            <div class="text-center" style="padding: 12px 0px;margin:0px 0px 40px 0px;">
                 <h1> POST DETAILS </h1>
             </div>
         @endif
     @else
-        <div class="text-center" style="margin: 30px 0px;">
+        <div class="text-center" style="padding: 12px 0px;margin:0px 0px 40px 0px;">
             <h1> POST DETAILS </h1>
         </div>
     @endif

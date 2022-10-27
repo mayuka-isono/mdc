@@ -3,7 +3,7 @@
 <main>
     <div class="back">
         <section class="" style="background-color:#006400;">
-            <div class="text-center" style="color:white;">
+            <div class="text-center" style="color:white;padding: 12px 0px;">
                 <h1> TOP PAGE </h1>
             </div>
         </section>

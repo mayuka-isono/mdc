@@ -2,40 +2,42 @@
 @section('content')
 <main>
     <section class="">
-        <div class="text-center" style="margin: 30px 0px;background-color:#006400;">
+        <div class="text-center" style="padding: 15px 0px;background-color:#006400;">
             <h1 style="color:white;"> MY PAGE </h1>
         </div>
     </section>
-    <div class="border border-secondary" style="padding: 120px 0px;">
-        <div class="container">
-            <div class="row"  >
-                <div class="col">
-                <img src="{{asset('storage/'.$user->icon_img)}}" class="rounded-circle" alt="..." style="width: 220px;height: 230px;" >
-                </div>
-                <div class="col order-1">
-                    <div class="d-flex justify-content-start">
-                        <div>
-                            <h3 style="font-weight:bold;">NAME &ensp;:&ensp;</h3>
+    <div class="user-info">
+        <div class="border border-secondary" style="padding: 120px 0px;">
+            <div class="container">
+                <div class="row" >
+                    <div class="col">
+                    <img src="{{asset('storage/'.$user->icon_img)}}" class="rounded-circle" alt="..." style="width: 220px;height: 230px;" >
+                    </div>
+                    <div class="col order-1">
+                        <div class="d-flex justify-content-start">
+                            <div>
+                                <h3 style="font-weight:bold;">NAME &ensp;:&ensp;</h3>
+                            </div>
+                            <div class="col-4" >
+                                <h3 style="font-weight:bold;color:brown">{{ Auth::user()->name }}</h3>
+                            </div>
                         </div>
-                        <div class="col-4" >
-                            <h3 style="font-weight:bold;color:brown">{{ Auth::user()->name }}</h3>
+                        <div class="border border-secondary" style="padding: 20px 5px;">
+                            {{ Auth::user()->user_comment }}
                         </div>
                     </div>
-                    <div class="border border-secondary" style="padding: 20px 5px;">
-                        {{ Auth::user()->user_comment }}
-                    </div>
-                </div>
-                <div class="col order-2">
-                <div class="col-4">
-                        <a href="{{ route('user.edit', ['user' => Auth::user()->id]) }}" class="btn btn-outline-dark">基本情報設定</a>
-                    </div>
-                    @if(Auth::user()->role == 1)
-                        <div class="col-4">
-                            <a href="{{ route('post.create') }}" class="btn btn-outline-primary">新規投稿</a>
+                    <div class="col order-2">
+                    <div class="col-4">
+                            <a href="{{ route('user.edit', ['user' => Auth::user()->id]) }}" class="btn btn-outline-dark">基本情報設定</a>
                         </div>
-                    @else
-                    @endif
-                    <a href="{{ route('fav.index') }}" class="btn btn-outline-danger">いいね一覧</a>
+                        @if(Auth::user()->role == 1)
+                            <div class="col-4">
+                                <a href="{{ route('post.create') }}" class="btn btn-outline-primary">新規投稿</a>
+                            </div>
+                        @else
+                        @endif
+                        <a href="{{ route('fav.index') }}" class="btn btn-outline-danger">いいね一覧</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,4 +71,16 @@
 </main>
 
 @endsection
+<style>
+    .user-info {
+        background: linear-gradient(to bottom,#BDB76B ,#FFFACD);
+    }
+    .album {
+        background: linear-gradient(to top,#B0C4DE ,#8FBC8F );
+    }
+    .btn-green {
+        background-color:#006400 ;
+        color:white ;
+    }
+</style>
 

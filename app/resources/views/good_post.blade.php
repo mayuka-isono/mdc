@@ -6,7 +6,7 @@
             <h1> GOOD POST PAGE </h1>
         </div>
     </section>
-    <div class="album py-5 bg-light">
+    <div class="album py-5 bg-light" >
         <div class="container">
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                 @foreach($post as $pos)
@@ -32,6 +32,7 @@
     }
     .album {
         background: linear-gradient(to top,#B0C4DE ,#8FBC8F );
+        padding:50px 0px 350px 0px;
     }
     .btn-green {
         background-color:#006400 ;

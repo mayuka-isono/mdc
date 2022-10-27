@@ -22,7 +22,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('stylesheet')
 </head>
-<body>
+<body id="body">
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height:60px; background-color:#FFEFD5 ;">
             <div class="container-fluid">
@@ -65,6 +65,9 @@
 </body>
 </html>
 <style>
+    #body {
+        background: linear-gradient(to top,#B0C4DE ,#8FBC8F );
+    }
     .btn-green {
         background-color:#006400 ;
         color:white ;
