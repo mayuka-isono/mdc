@@ -50,15 +50,15 @@
                     @if($fav)
                         <p class="favorite-marke" >
                             <button class="js-like-toggle loved" data-postid="{{ $post->id }}" ><i class="fas fa-heart" ></i></button>
-                            <span class="likesCount">{{$post->likes_count}}</span>
                         </p>
                     @else
                         <p class="favorite-marke">
                             <button class="js-like-toggle" href="" data-postid="{{ $post->id }}"><i class="fas fa-heart test"></i></button>
-                            <span class="likesCount">{{$post->likes_count}}</span>
+
                         </p>
                     @endif
                 </div>
+                <span class="likesCount"><p>&emsp;&emsp;いいね数&emsp;:&emsp;{{$posts->fav_count}}</p></span>
                 @endif
             </div>
             <div class="follow-followed">  <!-- フォロー機能 -->
@@ -134,8 +134,8 @@
         border-radius:10px;
     }
     .followed {
-        background-color:#006400 ;
-        color:white;
+        background-color:#13EEFF;
+        color:black;
     }
     .contents {
         font-weight:bold;

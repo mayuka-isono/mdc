@@ -27,12 +27,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        $fav_model = Fav::like_exist(Auth::user()->id, $id);
-        $follow_model = Follow::follow_exist($user_id,Auth::user()->id);
-        return view('detail_post',[
-            'fav' => $fav_model,
-            'follow' => $follow_model,
-        ]);
+        $posts = Post::withCount('Fav')->get();
+        dd($posts);
+        return view('detail_pos',compact('posts'));
+
     }
 
 
@@ -58,6 +56,7 @@ class PostController extends Controller
 
         //loadCountとすればリレーションの数を○○_countという形で取得できる（今回の場合はいいねの総数）
         $postLikesCount = $post->loadCount('fav')->likes_count;
+
 
         //一つの変数にajaxに渡す値をまとめる
         //今回ぐらい少ない時は別にまとめなくてもいい
@@ -127,7 +126,7 @@ class PostController extends Controller
         $post->save();
 
         $user = User::find($post->user_id);
-        $post = Post::where('user_id',$post->user_id)->orderBy('created_at','desc')->paginate(6);;
+        $post = Post::where('user_id',$post->user_id)->where('del_flg',0)->orderBy('created_at','desc')->paginate(6);;
         return view('private_user',[
             'user' => $user,
             'post' => $post,
@@ -155,6 +154,9 @@ class PostController extends Controller
         if(Auth::check()) {
             $fav_model = Fav::like_exist(Auth::user()->id, $id);
             $follow_model = Follow::follow_exist($user_id,Auth::user()->id);
+
+            $posts = Post::withCount('Fav')->find($id);
+            // dd($posts);
             return view('detail_post',[
                 'post' => $post,
                 'user' => $user,
@@ -164,6 +166,7 @@ class PostController extends Controller
                 'color' => $color[$post->color],
                 'fav' => $fav_model,
                 'follow' => $follow_model,
+                'posts' =>$posts,
             ]);
 
         } else {
@@ -176,17 +179,6 @@ class PostController extends Controller
                 'color' => $color[$post->color],
             ]);
         }
-
-        // return view('detail_post',[
-        //     'post' => $post,
-        //     'user' => $user,
-        //     'season' => $season[$post->season],
-        //     'category' => $category[$post->category],
-        //     'size' => $size[$post->size],
-        //     'color' => $color[$post->color],
-        //     // 'fav' => $fav_model,
-        //     // 'follow' => $follow_model,
-        // ]);
 
     }
 

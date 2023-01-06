@@ -33,7 +33,10 @@
                             <button class="btn btn-green" type="submit">Search</button>
                         </div>
                     </form>
-                    <a class="navbar-brand" href="{{ ('/') }}" style="width: 250px;margin:0 auto;"><h1 style="font-weight:bold;color:#006400;">MDC</h1></a>  <!-- MDC アイコン　-->
+                    <div>
+                        <button class="btn btn-search" type="submit" style="padding: ">Search page</button>
+                    </div>
+                    <a class="text-center" href="{{ ('/') }}" style="width: 250px;margin:0 auto;"><h1 style="font-weight:bold;color:#006400;">MDC</h1></a>  <!-- MDC アイコン　-->
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
@@ -72,4 +75,10 @@
         background-color:#006400 ;
         color:white ;
     }
+    .btn-search {
+        background-color:#009900 ;
+        color:white ;
+    }
+
+
 </style>

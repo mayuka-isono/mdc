@@ -2,12 +2,11 @@
 @section('content')
 
 <main>
-    <section class="">
-        <div class="text-center" style="margin: 30px 0px;background-color:#006400;">
+    <section class="section">
+        <div class="text-center" style="padding: 10px 0px;">
             <h1 style="color:white;"> NEW POST</h1>
         </div>
     </section>
-
     <form class="post_form" novalidate method="POST" action="{{ route('post.store') }}" enctype="multipart/form-data" style="border: solid; border-color: #000000;margin: 30px 80px;padding:50px 30px">
     @csrf
         <div class="row justify-content-around">
@@ -24,7 +23,7 @@
                 <div class="" style="border: solid; border-color: #000000;padding: 30px 60px;">
                     <div class="" novalidate >
                         <div class="form-group">
-                            <label for="post_title">POST TITLE</label>
+                            <label for="post_title" class="form-label">POST TITLE</label>
                             <input type="text" class="form-control" id="post_title" name="post_title" />
                         </div>
                     </div>
@@ -93,5 +92,13 @@
         </div>
     </form>
 </main>
-
 @endsection
+<style>
+    .section {
+        background-color:#006400 ;
+        color:white ;
+    }
+    .form-label {
+        font-weight:bold;
+    }
+</style>

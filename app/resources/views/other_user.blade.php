@@ -35,7 +35,6 @@
                             {{ $user->user_comment }}
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -97,7 +96,7 @@
         color:white ;
     }
     .user-info {
-        background: linear-gradient(to bottom,#D2B48C ,#F5F5DC);
+        /* background: linear-gradient(to top,#CBFFD3,#F5F5DC); */
     }
     .album {
         background: linear-gradient(to top,#B0C4DE ,#8FBC8F );

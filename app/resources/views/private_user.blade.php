@@ -22,7 +22,7 @@
                                 <h3 style="font-weight:bold;color:brown">{{ Auth::user()->name }}</h3>
                             </div>
                         </div>
-                        <div class="border border-secondary" style="padding: 20px 5px;">
+                        <div class="border border-secondary" style="padding: 20px 5px; background-color:#FFFFEE;font-weight:bold;">
                             {{ Auth::user()->user_comment }}
                         </div>
                     </div>
@@ -73,7 +73,7 @@
 @endsection
 <style>
     .user-info {
-        background: linear-gradient(to bottom,#BDB76B ,#FFFACD);
+        background: linear-gradient(to bottom,#CBFFD3,#FFFACD);
     }
     .album {
         background: linear-gradient(to top,#B0C4DE ,#8FBC8F );
